@@ -1,0 +1,655 @@
+main {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+main .container {
+  background-color: #FAFAFA;
+  width: 100%;
+  max-width: 1600px;
+  padding: 20px;
+}
+main .container .main-search {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+main .container .main-search .search, main .container .main-search .filter, main .container .main-search .sort {
+  height: 60px;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+  background-color: #FFFFFF;
+}
+main .container .main-search .search {
+  flex: 4;
+  display: flex;
+  position: relative;
+}
+main .container .main-search .search input {
+  flex: 1;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  padding-left: 20px;
+  min-width: 0;
+  width: 100%;
+}
+main .container .main-search .search select {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  min-height: 0;
+  background-color: #FFFFFF;
+  top: 100%;
+  border: 1px solid #cdcdcd;
+  transition: all 300ms ease-in-out;
+  z-index: 2;
+}
+main .container .main-search .search button {
+  width: 60px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+main .container .main-search .search button .fas {
+  font-size: 1.4em;
+}
+main .container .main-search .sort {
+  width: 60px;
+  cursor: pointer;
+}
+main .container .main-search .sort .fas {
+  font-size: 1.3em;
+}
+main .container .main-admin {
+  padding: 10px;
+}
+main .container .main-admin > .panel {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 10px 20px;
+  width: 100%;
+  justify-content: flex-end;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+main .container .main-admin > .panel .info {
+  margin-right: auto;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+main .container .main-admin > .panel button {
+  display: flex;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 13px;
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+main .container .main-admin > .panel button:hover {
+  border-color: #212121;
+}
+main .container .main-admin > .panel button .fas, main .container .main-admin > .panel button .fab {
+  margin-left: 5px;
+  font-size: 1em;
+}
+main .container .main-poems {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+main .container .main-poems article {
+  color: #212121;
+  position: relative;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  border: 1px solid transparent;
+  border-bottom-color: #cdcdcd;
+  cursor: crosshair;
+  margin: 20px 10px;
+  padding: 15px 0 30px 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+main .container .main-poems article a {
+  color: #212121;
+}
+main .container .main-poems article .poem {
+  display: flex;
+  flex-direction: row;
+  padding-left: 37px;
+}
+main .container .main-poems article .poem .poem-bookmark, main .container .main-poems article .poem .poem-title, main .container .main-poems article .poem .poem-author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+main .container .main-poems article .poem .poem-bookmark {
+  position: absolute;
+  left: 10px;
+  top: 30px;
+}
+main .container .main-poems article .poem .poem-bookmark i {
+  cursor: pointer;
+  margin-top: -3px;
+  font-size: 1.3em;
+}
+main .container .main-poems article .poem .poem-title {
+  font-family: "Parisienne", cursive;
+  font-weight: bold;
+  font-size: 2.5em;
+  margin-right: 20px;
+  position: relative;
+}
+main .container .main-poems article .poem .poem-title::after {
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #757575;
+  border-radius: 50%;
+  right: -15px;
+}
+main .container .main-poems article .poem .poem-author {
+  font-family: "Parisienne", cursive;
+  font-weight: normal;
+  font-size: 1.8em;
+}
+main .container .main-poems article .poem-language {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  padding: 5px 10px;
+}
+main .container .main-poems article .poem-strophe {
+  padding-left: 45px;
+  line-height: 1.5em;
+}
+main .container .main-poems article .poem-strophe pre {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+main .container .main-poems article .poem-strophe .poem-read-more {
+  display: inline-block;
+  padding-top: 10px;
+  color: #757575;
+}
+main .container .main-poems article:hover {
+  border: 1px solid #757575;
+}
+
+.add-poem {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  overflow-y: scroll;
+  z-index: 4;
+}
+.add-poem .container {
+  display: grid;
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto 0 auto;
+  padding: 30px;
+  background-color: #FAFAFA;
+}
+.add-poem .container > .close-area {
+  text-align: right;
+}
+.add-poem .container > .close-area > button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.add-poem .container > .close-area > button .fas {
+  padding-left: 5px;
+}
+.add-poem .container > .close-area > button:hover {
+  border-color: #212121;
+}
+.add-poem .container > form {
+  padding-top: 20px;
+}
+.add-poem .container > form .poem-name, .add-poem .container > form .poem-author, .add-poem .container > form .poem-language, .add-poem .container > form .strophes-count, .add-poem .container > form #strophes > .strophe {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
+  align-items: center;
+}
+.add-poem .container > form .poem-name > label, .add-poem .container > form .poem-author > label, .add-poem .container > form .poem-language > label, .add-poem .container > form .strophes-count > label, .add-poem .container > form #strophes > .strophe > label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.add-poem .container > form .poem-name > input, .add-poem .container > form .poem-name > select, .add-poem .container > form .poem-author > input, .add-poem .container > form .poem-author > select, .add-poem .container > form .poem-language > input, .add-poem .container > form .poem-language > select, .add-poem .container > form .strophes-count > input, .add-poem .container > form .strophes-count > select {
+  height: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 5px;
+  border: 1px solid #cdcdcd;
+}
+.add-poem .container > form .strophes-count > input {
+  border: 2px solid #212121;
+}
+.add-poem .container > form #strophes > .strophe > textarea {
+  min-height: 130px;
+  padding: 8px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+.add-poem .container > form #submit {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-end;
+  grid-gap: 10px;
+  padding-top: 15px;
+}
+.add-poem .container > form #submit > button, .add-poem .container > form #submit > .button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 10px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.add-poem .container > form #submit > button .fas, .add-poem .container > form #submit > .button .fas {
+  padding-left: 5px;
+}
+.add-poem .container > form #submit > button:hover, .add-poem .container > form #submit > .button:hover {
+  border-color: #212121;
+}
+
+.delete-poem {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  overflow-y: scroll;
+  z-index: 4;
+}
+.delete-poem .container {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  padding: 30px;
+  background-color: #FAFAFA;
+}
+.delete-poem .container > .close-area {
+  text-align: right;
+}
+.delete-poem .container > .close-area > button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.delete-poem .container > .close-area > button .fas {
+  padding-left: 5px;
+}
+.delete-poem .container > .close-area > button:hover {
+  border-color: #212121;
+}
+.delete-poem .container > form {
+  padding-top: 20px;
+}
+.delete-poem .container > form .poem-name {
+  display: grid;
+  grid-template-columns: auto 2fr auto;
+  padding-bottom: 20px;
+  align-items: center;
+}
+.delete-poem .container > form .poem-name > label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+.delete-poem .container > form .poem-name > select, .delete-poem .container > form .poem-name > select option {
+  height: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 5px;
+  border: 1px solid #cdcdcd;
+}
+.delete-poem .container > form .poem-name > button {
+  cursor: pointer;
+  height: 35px;
+  padding: 0 10px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+  margin-left: 10px;
+}
+.delete-poem .container > form .poem-name > button .fas {
+  padding-left: 5px;
+}
+.delete-poem .container > form .poem-name > button:hover {
+  border-color: #212121;
+}
+
+.add-author {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  overflow-y: scroll;
+  z-index: 4;
+}
+.add-author .container {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  padding: 30px;
+  background-color: #FAFAFA;
+}
+.add-author .container > .close-area {
+  text-align: right;
+}
+.add-author .container > .close-area > button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.add-author .container > .close-area > button .fas {
+  padding-left: 5px;
+}
+.add-author .container > .close-area > button:hover {
+  border-color: #212121;
+}
+.add-author .container > form {
+  padding-top: 20px;
+}
+.add-author .container > form .author-name {
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+.add-author .container > form .author-name label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+}
+.add-author .container > form .author-name input {
+  height: 35px;
+  padding: 0 7px;
+}
+.add-author .container > form .author-dates {
+  display: grid;
+  grid-template-columns: 210px 1fr 1fr auto;
+  grid-gap: 20px;
+  align-items: center;
+}
+.add-author .container > form .author-dates label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+}
+.add-author .container > form .author-dates input {
+  max-width: 150px;
+  height: 35px;
+  padding: 0 7px;
+}
+.add-author .container > form .submit {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-end;
+  grid-gap: 10px;
+  padding-top: 15px;
+}
+.add-author .container > form .submit > button, .add-author .container > form .submit > .button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 10px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.add-author .container > form .submit > button .fas, .add-author .container > form .submit > .button .fas {
+  padding-left: 5px;
+}
+.add-author .container > form .submit > button:hover, .add-author .container > form .submit > .button:hover {
+  border-color: #212121;
+}
+
+.delete-author {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  overflow-y: scroll;
+  z-index: 4;
+}
+.delete-author .container {
+  display: grid;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto 0 auto;
+  padding: 30px;
+  background-color: #FAFAFA;
+}
+.delete-author .container > .close-area {
+  text-align: right;
+}
+.delete-author .container > .close-area > button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.delete-author .container > .close-area > button .fas {
+  padding-left: 5px;
+}
+.delete-author .container > .close-area > button:hover {
+  border-color: #212121;
+}
+.delete-author .container > form {
+  padding-top: 20px;
+}
+.delete-author .container > form .author-name {
+  display: grid;
+  grid-template-columns: auto 2fr auto;
+  padding-bottom: 20px;
+  align-items: center;
+}
+.delete-author .container > form .author-name > label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+.delete-author .container > form .author-name > select, .delete-author .container > form .author-name > select option {
+  height: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 5px;
+  border: 1px solid #cdcdcd;
+}
+.delete-author .container > form .author-name > button {
+  cursor: pointer;
+  height: 35px;
+  padding: 0 10px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+  margin-left: 10px;
+}
+.delete-author .container > form .author-name > button .fas {
+  padding-left: 5px;
+}
+.delete-author .container > form .author-name > button:hover {
+  border-color: #212121;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+}
+footer a {
+  color: #757575;
+}
+footer .fas {
+  color: #E91E63;
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.75);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(0.75);
+  }
+}
+@media screen and (max-width: 1200px) {
+  main .container .main-poems article .poem .poem-title {
+    font-size: 2em;
+  }
+  main .container .main-poems article .poem .poem-author {
+    font-size: 1.4em;
+  }
+}
+@media screen and (max-width: 1000px) {
+  main {
+    margin-top: 160px;
+  }
+  main .container .main-search .search, main .container .main-search .filter, main .container .main-search .sort {
+    font-size: 1em;
+  }
+  main .container .main-search .search button {
+    width: 40px;
+  }
+  main .container .main-poems {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 450px) {
+  main .container .main-poems article .poem .poem-title {
+    font-size: 1.6em;
+  }
+  main .container .main-poems article .poem .poem-author {
+    font-size: 1.2em;
+  }
+  main .container .main-poems article .poem-strophe {
+    font-size: 0.9em;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,765 @@
+$main-background-color: #FAFAFA;
+$main-color: #212121;
+$main-max-width: 1600px;
+
+
+main {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .container {
+        background-color: $main-background-color;
+        width: 100%; max-width: $main-max-width;
+        padding: 20px;
+
+        .main-search {
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+            .search, .filter, .sort {
+                height: 60px;
+                border: 0;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                font-size: 1.3em;
+                background-color: #FFFFFF;
+            }
+
+            .search {
+                flex: 4;
+                display: flex;
+                position: relative;
+
+                input {
+                    flex: 1;
+                    border: 0;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 300;
+                    font-size: 1em;
+                    padding-left: 20px;
+                    min-width: 0;
+                    width: 100%;
+                }
+
+                select {
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 0;
+                    min-height: 0;
+                    background-color: #FFFFFF;
+                    top: 100%;
+                    border: 1px solid #cdcdcd;
+                    transition: all 300ms ease-in-out;
+                    z-index: 2;
+                }
+
+                button {
+                    width: 60px;
+                    border: 0;
+                    background-color: transparent;
+                    cursor: pointer;
+
+                    .fas {
+                        font-size: 1.4em;
+                    }
+                }
+            }
+
+            .sort {
+                width: 60px;
+                cursor: pointer;
+
+                .fas {
+                    font-size: 1.3em;
+                }
+            }
+        }
+
+        .main-admin {
+            padding: 10px;
+
+            & > .panel {
+                display: flex;
+                align-items: center;
+                padding: 10px 10px 10px 20px;
+                width: 100%;
+                justify-content: flex-end;
+                border: 1px solid rgba(0, 0, 0, .15);
+
+                .info {
+                    margin-right: auto;
+                    align-items: center;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 300;
+                    text-transform: uppercase;
+                }
+
+                &  {
+                    button {
+                        display: flex;
+                        cursor: pointer;
+                        height: 40px;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 7px 13px;
+                        margin-left: 10px;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 0.9em;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        color: #212121;
+                        background-color: #BDBDBD;
+                        border: 1px solid #E0E0E0;
+                        transition: border-color 300ms ease-in-out;
+
+                        &:hover {
+                            border-color: #212121;
+                        }
+
+                        .fas, .fab {
+                            margin-left: 5px;
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-poems {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            article {
+                color: $main-color;
+                position: relative;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+                border: 1px solid transparent;
+                border-bottom-color: #cdcdcd;
+                cursor: crosshair;
+
+                margin: 20px 10px;
+                padding: 15px 0 30px 0;
+
+                background-color: rgba(0, 0, 0, 0.1);
+
+                a {
+                    color: $main-color;
+                }
+
+                .poem {
+                    display: flex;
+                    flex-direction: row;
+                    padding-left: 37px;
+
+                    .poem-bookmark, .poem-title, .poem-author {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center; 
+                        padding: 5px;
+                    }
+
+                    .poem-bookmark {
+                        position: absolute;
+                        left: 10px;
+                        top: 30px;
+
+                        i {
+                            cursor: pointer;
+                            margin-top: -3px;
+                            font-size: 1.3em;
+                        }
+                    }
+
+                    .poem-title {
+                        font-family: 'Parisienne', cursive;
+                        font-weight: bold;
+                        font-size: 2.5em;    
+                        margin-right: 20px;
+                        position: relative;
+
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            width: 6px; height: 6px;
+                            background-color: #757575;
+                            border-radius: 50%;
+                            right: -15px;
+                        }
+                    }
+        
+                    .poem-author {
+                        font-family: 'Parisienne', cursive;
+                        font-weight: normal;
+                        font-size: 1.8em;
+                    }
+                }
+
+                .poem-language {
+                    position: absolute;
+                    top: 20px; right: 20px;
+                    background-color: rgba(0, 0, 0, .15);
+                    border-radius: 2px;
+                    padding: 5px 10px;
+                }
+
+                .poem-strophe {
+                    padding-left: 45px;
+                    line-height: 1.5em;
+
+                    pre {
+                        font-family: "Roboto", sans-serif;
+                        font-weight: 300;
+                    }
+
+                    .poem-read-more {
+                        display: inline-block;
+                        padding-top: 10px;
+                        color: #757575;
+                    }
+                }
+
+                &:hover {
+                    border: 1px solid #757575;
+                }
+            }
+        }
+    }
+}
+
+.add-poem {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 80px; left: 0; right: 0; bottom: 0;
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, .75);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    overflow-y: scroll;
+    z-index: 4;
+
+    .container {
+        display: grid;
+        width: 100%;
+        max-width: 1000px;
+        margin: 30px auto 0 auto;
+        padding: 30px;
+        background-color: #FAFAFA;
+
+        & > {
+            .close-area {
+                text-align: right;
+
+                & > button {
+                    cursor: pointer;
+                    width: 100px;
+                    height: 40px;
+                    text-align: center;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 1em;
+                    font-weight: 400;
+                    color: #212121;
+                    background-color: #BDBDBD;
+                    border: 1px solid #E0E0E0;
+                    transition: border-color 300ms ease-in-out;
+
+                    & .fas {
+                        padding-left: 5px;
+                    }
+
+                    &:hover {
+                        border-color: #212121;
+                    }
+                }
+            }
+
+            form {
+                padding-top: 20px;
+
+                .poem-name, .poem-author, .poem-language, .strophes-count, #strophes > .strophe {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    padding-bottom: 20px;
+                    align-items: center;
+
+                    & > label {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                    }
+                }
+
+                .poem-name, .poem-author, .poem-language, .strophes-count {
+                    & > input, & > select {
+                        height: 35px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        padding: 5px;
+                        border: 1px solid #cdcdcd;
+                    }
+                }
+
+                .strophes-count > input {
+                    border: 2px solid #212121;
+                }
+
+                #strophes > .strophe {
+                    & > textarea {
+                        min-height: 130px;
+                        padding: 8px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        font-size: 0.9em;
+                    }
+                }
+
+                #submit {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    justify-content: flex-end;
+                    grid-gap: 10px;
+                    padding-top: 15px;
+
+                    & > button, & > .button {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        padding: 0 10px;
+                        height: 40px;
+                        text-align: center;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1em;
+                        font-weight: 400;
+                        color: #212121;
+                        background-color: #BDBDBD;
+                        border: 1px solid #E0E0E0;
+                        transition: border-color 300ms ease-in-out;
+
+                        & .fas {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            border-color: #212121;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.delete-poem {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 80px; left: 0; right: 0; bottom: 0;
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, .75);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    overflow-y: scroll;
+    z-index: 4;
+
+    .container {
+        display: grid;
+        width: 100%;
+        max-width: 800px;
+        margin: 30px auto 0 auto;
+        padding: 30px;
+        background-color: #FAFAFA;
+
+        & > {
+            .close-area {
+                text-align: right;
+
+                & > button {
+                    cursor: pointer;
+                    width: 100px;
+                    height: 40px;
+                    text-align: center;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 1em;
+                    font-weight: 400;
+                    color: #212121;
+                    background-color: #BDBDBD;
+                    border: 1px solid #E0E0E0;
+                    transition: border-color 300ms ease-in-out;
+
+                    & .fas {
+                        padding-left: 5px;
+                    }
+
+                    &:hover {
+                        border-color: #212121;
+                    }
+                }
+            }
+
+            form {
+                padding-top: 20px;
+
+                .poem-name {
+                    display: grid;
+                    grid-template-columns: auto 2fr auto;
+                    padding-bottom: 20px;
+                    align-items: center;
+
+                    & > label {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        padding-right: 10px;
+                    }
+
+                    & > select, & > select option {
+                        height: 35px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        padding: 5px;
+                        border: 1px solid #cdcdcd;
+                    }
+
+                    & > button {
+                        cursor: pointer;
+                        height: 35px;
+                        padding: 0 10px;
+                        text-align: center;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1em;
+                        font-weight: 400;
+                        color: #212121;
+                        background-color: #BDBDBD;
+                        border: 1px solid #E0E0E0;
+                        transition: border-color 300ms ease-in-out;
+                        margin-left: 10px;
+
+                        & .fas {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            border-color: #212121;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.add-author {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 80px; left: 0; right: 0; bottom: 0;
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, .75);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    overflow-y: scroll;
+    z-index: 4;
+
+    .container {
+        display: grid;
+        width: 100%;
+        max-width: 800px;
+        margin: 30px auto 0 auto;
+        padding: 30px;
+        background-color: #FAFAFA;
+
+        & > {
+            .close-area {
+                text-align: right;
+
+                & > button {
+                    cursor: pointer;
+                    width: 100px;
+                    height: 40px;
+                    text-align: center;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 1em;
+                    font-weight: 400;
+                    color: #212121;
+                    background-color: #BDBDBD;
+                    border: 1px solid #E0E0E0;
+                    transition: border-color 300ms ease-in-out;
+
+                    & .fas {
+                        padding-left: 5px;
+                    }
+
+                    &:hover {
+                        border-color: #212121;
+                    }
+                }
+            }
+
+            form {
+                padding-top: 20px;
+
+                .author-name {
+                    padding-bottom: 10px;
+                    display: grid;
+                    grid-template-columns: 210px 1fr;
+                    grid-gap: 20px;
+                    align-items: center;
+
+                    label {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        text-align: right;
+                    }
+
+                    input {
+                        height: 35px;
+                        padding: 0 7px;
+                    }
+                }
+
+                .author-dates {
+                    display: grid;
+                    grid-template-columns: 210px 1fr 1fr auto;
+                    grid-gap: 20px;
+                    align-items: center;
+
+                    label {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        text-align: right;
+                    }
+
+                    input {
+                        max-width: 150px;
+                        height: 35px;
+                        padding: 0 7px;
+                    }
+                }
+
+                .submit {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    justify-content: flex-end;
+                    grid-gap: 10px;
+                    padding-top: 15px;
+
+                    & > button, & > .button {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        padding: 0 10px;
+                        height: 40px;
+                        text-align: center;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1em;
+                        font-weight: 400;
+                        color: #212121;
+                        background-color: #BDBDBD;
+                        border: 1px solid #E0E0E0;
+                        transition: border-color 300ms ease-in-out;
+
+                        & .fas {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            border-color: #212121;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.delete-author {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 80px; left: 0; right: 0; bottom: 0;
+    padding-bottom: 30px;
+    background-color: rgba(0, 0, 0, .75);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    overflow-y: scroll;
+    z-index: 4;
+
+    .container {
+        display: grid;
+        width: 100%;
+        max-width: 800px;
+        margin: 30px auto 0 auto;
+        padding: 30px;
+        background-color: #FAFAFA;
+
+        & > {
+            .close-area {
+                text-align: right;
+
+                & > button {
+                    cursor: pointer;
+                    width: 100px;
+                    height: 40px;
+                    text-align: center;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 1em;
+                    font-weight: 400;
+                    color: #212121;
+                    background-color: #BDBDBD;
+                    border: 1px solid #E0E0E0;
+                    transition: border-color 300ms ease-in-out;
+
+                    & .fas {
+                        padding-left: 5px;
+                    }
+
+                    &:hover {
+                        border-color: #212121;
+                    }
+                }
+            }
+
+            form {
+                padding-top: 20px;
+
+                .author-name {
+                    display: grid;
+                    grid-template-columns: auto 2fr auto;
+                    padding-bottom: 20px;
+                    align-items: center;
+
+                    & > label {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 300;
+                        text-transform: uppercase;
+                        padding-right: 10px;
+                    }
+
+                    & > select, & > select option {
+                        height: 35px;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        padding: 5px;
+                        border: 1px solid #cdcdcd;
+                    }
+
+                    & > button {
+                        cursor: pointer;
+                        height: 35px;
+                        padding: 0 10px;
+                        text-align: center;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1em;
+                        font-weight: 400;
+                        color: #212121;
+                        background-color: #BDBDBD;
+                        border: 1px solid #E0E0E0;
+                        transition: border-color 300ms ease-in-out;
+                        margin-left: 10px;
+
+                        & .fas {
+                            padding-left: 5px;
+                        }
+
+                        &:hover {
+                            border-color: #212121;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+
+    a {
+        color: #757575;
+    }
+
+    .fas {
+        color: #E91E63;
+        animation: heartbeat 1s infinite;
+    }
+}
+
+@keyframes heartbeat
+{
+  0% {
+    transform: scale(.75);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(.75);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(.75);
+  }
+  100% {
+    transform: scale(.75);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+    main .container .main-poems article .poem {
+        .poem-title {
+            font-size: 2em;
+        }
+        .poem-author {
+            font-size: 1.4em;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        margin-top: 160px;
+
+        .container {
+            .main-search {
+                .search, .filter, .sort {
+                    font-size: 1em;
+                }
+
+                .search button {
+                    width: 40px;
+                }
+            }
+
+            .main-poems {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    main .container .main-poems article {
+        .poem {
+            .poem-title {
+                font-size: 1.6em;
+            }
+            .poem-author {
+                font-size: 1.2em;
+            }
+        }
+
+        .poem-strophe {
+            font-size: 0.9em;
+        }
+    }   
+}

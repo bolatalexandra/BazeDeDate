@@ -1,0 +1,494 @@
+main #add-comment-menu {
+  flex-direction: column;
+  display: none;
+  background-color: #FAFAFA;
+  border: 1px solid #BDBDBD;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+main #add-comment-menu.hidden {
+  display: flex;
+}
+main #add-comment-menu textarea, main #add-comment-menu input {
+  background-color: #FAFAFA;
+  font-family: "Roboto", sans-serif;
+  border: 0;
+}
+main #add-comment-menu textarea {
+  padding: 10px;
+  border-bottom: 1px solid #212121;
+  font-size: 0.8em;
+  min-width: 15vw;
+  min-height: 15vh;
+}
+main #add-comment-menu input {
+  font-size: 0.7em;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 15px 0;
+  cursor: pointer;
+}
+main .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  width: 100%;
+}
+main .container > .info {
+  font-size: 1.2em;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+main .container .poem {
+  display: block;
+  width: 100%;
+  max-width: 1600px;
+  padding: 100px 0 30px 0;
+  margin: 0 auto;
+  border: 1px solid #BDBDBD;
+  background-color: #FAFAFA;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+main .container .poem > .control {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+main .container .poem > .control > a, main .container .poem > .control > button {
+  display: flex;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 13px;
+  margin-right: 15px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+main .container .poem > .control > a:hover, main .container .poem > .control > button:hover {
+  border-color: #212121;
+}
+main .container .poem > .control > a .fas, main .container .poem > .control > a .fab, main .container .poem > .control > button .fas, main .container .poem > .control > button .fab {
+  margin-left: 5px;
+  font-size: 1em;
+}
+main .container .poem .poem-title, main .container .poem .poem-author {
+  text-align: center;
+  font-family: "Parisienne", cursive;
+}
+main .container .poem .poem-title > a, main .container .poem .poem-author > a {
+  color: #212121;
+}
+main .container .poem .poem-title {
+  font-weight: bold;
+  font-size: 3em;
+}
+main .container .poem .poem-author {
+  font-size: 1.7em;
+  padding-bottom: 30px;
+}
+main .container .poem .poem-strophes {
+  display: block;
+}
+main .container .poem .poem-strophes pre {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+main .container .poem .author-picture {
+  text-align: center;
+}
+main .container .poem .author-picture > img {
+  width: 200px;
+  height: auto;
+  border: 15px solid #212121;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+main .container .poem .author-poems {
+  display: block;
+  padding: 10px 30px;
+  text-align: center;
+}
+main .container .poem .author-poems .intro {
+  text-transform: uppercase;
+  font-weight: 300;
+  padding-bottom: 5px;
+}
+main .container .poem .author-poems ol {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+main .container .poem .author-poems ol > li a {
+  color: #212121;
+}
+main .container .poem .author-poems ol > li a:hover {
+  text-decoration: underline;
+}
+main .no-comment {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid #cdcdcd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 1em;
+  margin-top: 15px;
+}
+main .comments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  justify-items: center;
+  max-width: 1300px;
+  margin: 40px auto 0 auto;
+  font-size: 1em;
+}
+main .comments::before {
+  position: absolute;
+  content: "Comments";
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 300;
+  margin-top: -15px;
+}
+main .comments section {
+  width: 100%;
+}
+main .comments section .comment {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "avatar name username delete" "avatar text text text";
+  grid-template-columns: auto auto 1fr auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid #cdcdcd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 1em;
+  margin-top: 15px;
+}
+main .comments section .comment a {
+  color: #212121;
+}
+main .comments section .comment > .avatar {
+  grid-area: avatar;
+  text-align: center;
+  margin-right: 10px;
+}
+main .comments section .comment > .avatar > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+main .comments section .comment > .name {
+  grid-area: name;
+  padding-right: 5px;
+}
+main .comments section .comment > .username {
+  padding-top: 2px;
+  font-size: 0.8em;
+}
+main .comments section .comment > .delete {
+  grid-area: delete;
+  margin-left: auto;
+}
+main .comments section .comment > .text {
+  margin-top: 10px;
+  grid-area: text;
+  font-weight: 300;
+}
+main .comments section .add-comment {
+  width: 100%;
+  max-width: 700px;
+  display: grid;
+  grid-template-areas: "avatar name username username" "avatar input input submit";
+  grid-template-columns: auto auto 2fr auto;
+  background-color: #FAFAFA;
+  border: 1px solid #cdcdcd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 1em;
+  margin-top: 15px;
+}
+main .comments section .add-comment a {
+  color: #212121;
+}
+main .comments section .add-comment > .avatar {
+  grid-area: avatar;
+  text-align: center;
+  margin-right: 10px;
+}
+main .comments section .add-comment > .avatar > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+main .comments section .add-comment > .name {
+  grid-area: name;
+  padding-right: 5px;
+}
+main .comments section .add-comment > .username {
+  padding-top: 2px;
+  font-size: 0.8em;
+}
+main .comments section .add-comment > .input {
+  padding: 5px 10px 0 0;
+  grid-area: input;
+}
+main .comments section .add-comment > .input > textarea {
+  width: 100%;
+  border: 1px solid #BDBDBD;
+  background-color: transparent;
+  min-height: 70px;
+  padding: 5px;
+  resize: vertical;
+}
+main .comments section .add-comment > .submit {
+  grid-area: submit;
+  text-align: right;
+  padding-top: 4px;
+}
+main .comments section .add-comment > .submit > button {
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+main .comments section .add-comment > .submit > button:hover {
+  border-color: #212121;
+}
+main .menu-languages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: fixed;
+  width: 100%;
+  max-width: 1300px;
+  min-height: 50px;
+  bottom: 0;
+  padding-right: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+main .menu-languages a {
+  line-height: 50px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #212121;
+  position: relative;
+  vertical-align: middle;
+}
+main .menu-languages a img {
+  margin-right: 7px;
+}
+main .menu-languages a.active {
+  color: #FAFAFA;
+  background-color: #212121;
+}
+main .menu-languages a.arrow {
+  position: absolute;
+  right: 0;
+  font-size: 1em;
+}
+main .menu-languages a.arrow::after {
+  right: 100%;
+}
+
+.add-translation {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  overflow-y: scroll;
+  z-index: 4;
+}
+.add-translation .container {
+  display: grid;
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto 0 auto;
+  padding: 30px;
+  background-color: #FAFAFA;
+}
+.add-translation .container > .close-area {
+  text-align: right;
+}
+.add-translation .container > .close-area > button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.add-translation .container > .close-area > button .fas {
+  padding-left: 5px;
+}
+.add-translation .container > .close-area > button:hover {
+  border-color: #212121;
+}
+.add-translation .container > .poem-title, .add-translation .container > .poem-author {
+  text-align: center;
+  font-family: "Parisienne", cursive;
+}
+.add-translation .container > .poem-title > a, .add-translation .container > .poem-author > a {
+  color: #212121;
+}
+.add-translation .container > .poem-title {
+  font-weight: bold;
+  font-size: 2.7em;
+}
+.add-translation .container > .poem-author {
+  font-size: 1.4em;
+  padding-bottom: 30px;
+}
+.add-translation .container > form > .select-language {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+.add-translation .container > form > .select-language label {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.add-translation .container > form > .select-language select, .add-translation .container > form > .select-language select option {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  height: 35px;
+}
+.add-translation .container > form > .poem-content {
+  padding-top: 30px;
+}
+.add-translation .container > form > .poem-content .poem-strophe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 30px;
+}
+.add-translation .container > form > .poem-content .poem-strophe section {
+  width: 100%;
+  height: 100%;
+}
+.add-translation .container > form > .poem-content .poem-strophe section:first-child {
+  padding-right: 15px;
+}
+.add-translation .container > form > .poem-content .poem-strophe section:last-child {
+  padding-left: 15px;
+}
+.add-translation .container > form > .poem-content .poem-strophe section textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 30px;
+  resize: vertical !important;
+  overflow: auto;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+.add-translation .container > form > .submit-area {
+  text-align: center;
+}
+.add-translation .container > form > .submit-area .data {
+  display: none;
+}
+.add-translation .container > form > .submit-area > button {
+  cursor: pointer;
+  width: 160px;
+  height: 40px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+.add-translation .container > form > .submit-area > button .fas {
+  padding-left: 5px;
+}
+.add-translation .container > form > .submit-area > button:hover {
+  border-color: #212121;
+}
+
+footer {
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 1000px) {
+  main .container .poem {
+    margin: 0;
+    padding: 180px 0 40px 0;
+  }
+  main .comments {
+    grid-template-columns: 1fr;
+    position: relative;
+    padding: 0 20px;
+  }
+  main .comments section .add-comment {
+    max-width: 100%;
+  }
+
+  .add-translation {
+    top: 160px;
+  }
+}
+@media screen and (max-width: 500px) {
+  main .comments section .add-comment {
+    grid-template-areas: "avatar name name name" "avatar username username username" "avatar input input input" "avatar submit submit submit";
+  }
+  main .comments section .add-comment .input {
+    padding-right: 0;
+    padding-top: 10px;
+  }
+  main .comments section .add-comment > .submit {
+    text-align: left;
+  }
+  main .comments section .add-comment > .submit > input {
+    width: 120px;
+  }
+}
+@media screen and (max-width: 450px) {
+  main .container .poem {
+    padding-top: 20px;
+  }
+
+  .add-translation {
+    top: 250px;
+  }
+}
+
+/*# sourceMappingURL=poem.css.map */

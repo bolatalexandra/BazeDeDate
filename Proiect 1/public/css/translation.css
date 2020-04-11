@@ -1,0 +1,139 @@
+main {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+main .container {
+  background-color: #FAFAFA;
+  width: 100%;
+  max-width: 1600px;
+  padding: 20px;
+}
+main .container > .control {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+main .container > .control a, main .container > .control button {
+  display: flex;
+  cursor: pointer;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 13px;
+  margin-right: 15px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: #212121;
+  background-color: #BDBDBD;
+  border: 1px solid #E0E0E0;
+  transition: border-color 300ms ease-in-out;
+}
+main .container > .control a:hover, main .container > .control button:hover {
+  border-color: #212121;
+}
+main .container > .control a .fas, main .container > .control a .fab, main .container > .control button .fas, main .container > .control button .fab {
+  margin-left: 5px;
+  font-size: 1em;
+}
+main .container > .info {
+  font-size: 1.2em;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+main .container > .poem {
+  display: block;
+  width: 100%;
+}
+main .container > .poem .poem-title, main .container > .poem .poem-author {
+  text-align: center;
+  font-family: "Parisienne", cursive;
+}
+main .container > .poem .poem-title > a, main .container > .poem .poem-author > a {
+  color: #212121;
+}
+main .container > .poem .poem-title {
+  font-weight: bold;
+  font-size: 3em;
+}
+main .container > .poem .poem-author {
+  font-size: 1.7em;
+  padding-bottom: 30px;
+}
+main .container > .poem .poem-strophes {
+  display: block;
+}
+main .container > .poem .poem-strophes pre {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+main .container > .poem .poem-strophes pre.announce {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: #FF1744;
+}
+main .container > .author > .container {
+  margin: 0 auto;
+  max-width: 800px;
+  border-top: 1px solid #BDBDBD;
+  text-align: center;
+}
+main .container > .author > .container > a {
+  color: #757575;
+}
+main .container > .author > .container > a:hover {
+  text-decoration: underline;
+}
+main .menu-languages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: fixed;
+  width: 100%;
+  max-width: 1300px;
+  min-height: 50px;
+  bottom: 0;
+  padding-right: 50px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+main .menu-languages a {
+  line-height: 50px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #212121;
+  position: relative;
+  vertical-align: middle;
+}
+main .menu-languages a img {
+  margin-right: 7px;
+}
+main .menu-languages a.active {
+  color: #FAFAFA;
+  background-color: #212121;
+}
+main .menu-languages a.arrow {
+  position: absolute;
+  right: 0;
+  font-size: 1em;
+}
+main .menu-languages a.arrow::after {
+  right: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    margin-top: 160px;
+  }
+}
+
+/*# sourceMappingURL=translation.css.map */
